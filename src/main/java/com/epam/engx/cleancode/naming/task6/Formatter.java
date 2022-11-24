@@ -2,19 +2,19 @@ package com.epam.engx.cleancode.naming.task6;
 
 public class Formatter {
 
-    private static final String BORDER_SYMBOL = "+";
-    private static final String CONTENT_BORDER_SYMBOL = "|";
-    private static final String LINE_SYMBOL = "-";
+    private static final String CORNER_SYMBOL = "+";
+    private static final String VERTICAL_BORDER_SYMBOL = "|";
+    private static final String HORIZONTAL_BORDER_SYMBOL_SYMBOL = "-";
     private static final String CONTENT_DELIMITER = " _ ";
     private static final String NEW_LINE = "\n";
 
 
     public String formatKeyValue(String key, String value) {
         String content = key + CONTENT_DELIMITER + value;
-        String borderLineContent = repeat(LINE_SYMBOL, content.length());
+        String borderLineContent = repeat(HORIZONTAL_BORDER_SYMBOL_SYMBOL, content.length());
 
-        String borderLine = getFormattedLine(BORDER_SYMBOL, borderLineContent);
-        String contentLine = getFormattedLine(CONTENT_BORDER_SYMBOL, content);
+        String borderLine = getFormattedLine(CORNER_SYMBOL, borderLineContent);
+        String contentLine = getFormattedLine(VERTICAL_BORDER_SYMBOL, content);
 
         return borderLine + contentLine + borderLine;
 
