@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class User {
 
-    private boolean isAdmin;
+    protected boolean isAdmin;
 
     private String birthDate;
 
@@ -28,13 +28,5 @@ public class User {
 
     public void setRating(int rating) {
         this.rating = rating;
-    }
-
-    public void setAdmin(boolean isAdmin) {
-        this.isAdmin = isAdmin;
-    }
-
-    public boolean isAdmin() {
-        return isAdmin;
     }
 }

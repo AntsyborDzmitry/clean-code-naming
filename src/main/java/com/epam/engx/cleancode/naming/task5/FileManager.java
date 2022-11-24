@@ -14,8 +14,8 @@ import java.util.List;
 
 public final class FileManager {
 
-    private static final String[] IMAGE_TYPES = {"jpg", "png"};
-    private static final String[] DOCUMENT_TYPES = {"pdf", "doc"};
+    private static final String[] ALLOWED_IMAGE_TYPES = {"jpg", "png"};
+    private static final String[] ALLOWED_DOCUMENT_TYPES = {"pdf", "doc"};
 
     private final String basePath = PropertyUtil.loadProperty("basePath");
 
@@ -26,11 +26,11 @@ public final class FileManager {
     }
 
     public List<String> getImagesFileName() {
-        return getFileNamesFromDirectory(basePath, IMAGE_TYPES);
+        return getFileNamesFromDirectory(basePath, ALLOWED_IMAGE_TYPES);
     }
 
     public List<String> getDocumentFilesName() {
-        return getFileNamesFromDirectory(basePath, DOCUMENT_TYPES);
+        return getFileNamesFromDirectory(basePath, ALLOWED_DOCUMENT_TYPES);
     }
 
     private void validateFileType(String fileName) {
@@ -44,12 +44,12 @@ public final class FileManager {
     }
 
     private boolean isInvalidImage(String fileName) {
-        FileExtensionPredicate imageExtensionsPredicate = new FileExtensionPredicate(IMAGE_TYPES);
+        FileExtensionPredicate imageExtensionsPredicate = new FileExtensionPredicate(ALLOWED_IMAGE_TYPES);
         return !imageExtensionsPredicate.test(fileName);
     }
 
     private boolean isInvalidDocument(String fileName) {
-        FileExtensionPredicate documentExtensionsPredicate = new FileExtensionPredicate(DOCUMENT_TYPES);
+        FileExtensionPredicate documentExtensionsPredicate = new FileExtensionPredicate(ALLOWED_DOCUMENT_TYPES);
         return !documentExtensionsPredicate.test(fileName);
     }
 

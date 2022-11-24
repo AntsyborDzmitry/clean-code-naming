@@ -29,6 +29,4 @@ public class UserTest {
         bob.setRating(33);
         assertEquals("User [dateOfBirth=14.02.1974, name=Bob, isAdmin=true, subordinates=[], rating=33]", getAdminUser(bob).toString());
     }
-
-
 }
